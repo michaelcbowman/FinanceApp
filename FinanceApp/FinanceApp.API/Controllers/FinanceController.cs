@@ -23,10 +23,10 @@ namespace FinanceApp.API.Controllers
             return new List<FinanceData>();
         }
 
-        [HttpGet("Debtees")]
-        public IEnumerable<Debtee> GetDebtees()
+        [HttpPost("Debtees")]
+        public IEnumerable<Debtee> InsertDebtees()
         {
-            return _financeRepository.GetDebtees();
+            return _financeRepository.InsertDebtees();
         }
     }
 }
