@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace FinanceApp.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class FinanceController : ControllerBase
     {
         private readonly ILogger<FinanceController> _logger;
@@ -18,13 +17,13 @@ namespace FinanceApp.API.Controllers
             _financeRepository = financeRepository;
         }
 
-        [HttpGet(Name = "FinanceData")]
+        [HttpGet("FinanceData")]
         public IEnumerable<FinanceData> GetFinanceData()
         {
             return new List<FinanceData>();
         }
 
-        [HttpGet(Name = "Debtees")]
+        [HttpGet("Debtees")]
         public IEnumerable<Debtee> GetDebtees()
         {
             return _financeRepository.GetDebtees();

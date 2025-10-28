@@ -1,6 +1,6 @@
 @FinanceApp.API_HostAddress = http://localhost:5188
 
-GET {{FinanceApp.API_HostAddress}}/weatherforecast/
+GET {{FinanceApp.API_HostAddress}}/Debtees/
 Accept: application/json
 
 ###
