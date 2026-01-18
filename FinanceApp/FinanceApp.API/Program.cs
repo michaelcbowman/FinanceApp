@@ -1,43 +1,37 @@
-using FinanceApp.DAL;
+﻿using FinanceApp.DAL;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1.0", new OpenApiInfo { Title = "Finance App API", Version = "1.0" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Finance App API", Version = "v1" });
 });
-
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<FinanceRepository>();
 
 var app = builder.Build();
 
-app.UseDeveloperExceptionPage();
-
-app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/v1.0/swagger.json", "Finance App API (V 1.0)");
-});
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseDeveloperExceptionPage();
+}
+
+app.UseRouting();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Finance App API v1");
+    });
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
-app.UseRouting();
 
 app.MapControllers();
 

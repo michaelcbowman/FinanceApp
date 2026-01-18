@@ -9,7 +9,7 @@ namespace FinanceApp.DAL
 
         public FinanceRepository()
         {
-            _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=FinanceApp;Trusted_Connection=True;";
+            _connectionString = "Server=localhost;Database=FinanceApp;Trusted_Connection=True;Encrypt=False;";
         }
         public IEnumerable<Debtee> GetDebtees()
         {
@@ -58,17 +58,21 @@ namespace FinanceApp.DAL
             string insertQuery =
                 @"Insert INTO Debtees 
                     (DebteeName, 
-                    ContactName, 
+                    ContactFirstName, 
+                    ContactLastName,
                     ContactNumber, 
                     BillingAddress, 
+                    BillingCity,
                     BillingState, 
                     BillingZipCode) 
                      
                 VALUES
                     (@DebteeName, 
-                    @ContactName, 
+                    @ContactFirstName, 
+                    @ContactLastName,
                     @ContactNumber,
-                    @BillingAddress, 
+                    @BillingAddress,
+                    @BillingCity,
                     @BillingState, 
                     @BillingZipCode)";
 
@@ -76,9 +80,11 @@ namespace FinanceApp.DAL
             using (SqlCommand command = new SqlCommand(insertQuery, connection))
             {
                 command.Parameters.AddWithValue("@DebteeName", "AEP");
-                command.Parameters.AddWithValue("@ContactName", "Alice Johnson");
+                command.Parameters.AddWithValue("@ContactFirstName", "Alice");
+                command.Parameters.AddWithValue("@ContactLastName", "Johnson");
                 command.Parameters.AddWithValue("@ContactNumber", "6149806458");
-                command.Parameters.AddWithValue("@BillingAddress", "123 Apple St. Grove City");
+                command.Parameters.AddWithValue("@BillingAddress", "123 Apple St.");
+                command.Parameters.AddWithValue("@BillingCity", "Columbus");
                 command.Parameters.AddWithValue("@BillingState", "Oh");
                 command.Parameters.AddWithValue("@BillingZipCode", "43123");
 
