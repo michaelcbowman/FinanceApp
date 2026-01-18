@@ -28,20 +28,25 @@ namespace FinanceApp.DAL
                 using (SqlCommand command = new SqlCommand(getQuery, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    
+
                     while (reader.Read())
                     {
                         var debtee = new Debtee()
                         {
+
                             DebteeName = reader["DebteeName"].ToString() ?? string.Empty,
-                            ContactName = reader["ContactName"].ToString() ?? string.Empty,
+                            ContactFirstName = reader["ContactFirstName"].ToString() ?? string.Empty,
+                            ContactLastName = reader["ContactLastName"].ToString() ?? string.Empty,
                             ContactNumber = reader["ContactNumber"].ToString() ?? string.Empty,
                             BillingAddress = reader["BillingAddress"].ToString() ?? string.Empty,
+                            BillingCity = reader["BillingCity"].ToString() ?? string.Empty,
                             BillingState = reader["BillingState"].ToString() ?? string.Empty,
-                            BillingZipCode = reader["BillingZipCode"].ToString() ?? string.Empty,
+                            BillingZipCode = reader.IsDBNull(reader.GetOrdinal("BillingZipCode"))
+                                ? 0
+                                : reader.GetInt32(reader.GetOrdinal("BillingZipCode"))
                         };
                         debtees.Add(debtee);
-                        
+
                     }
                 }
             }
@@ -97,7 +102,7 @@ namespace FinanceApp.DAL
             {
                 command.Parameters.AddWithValue("@Id", id);
                 connection.Open();
-                return command.ExecuteNonQuery();          
+                return command.ExecuteNonQuery();
             }
         }
     }
