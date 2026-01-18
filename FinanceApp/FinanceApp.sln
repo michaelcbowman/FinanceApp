@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceApp.API", "FinanceApp.API\FinanceApp.API.csproj", "{508D45B1-CD27-479E-8059-9F2C97C56D6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceApp.DAL", "FinanceApp.DAL\FinanceApp.DAL.csproj", "{E67461C4-93BA-4D20-971D-46904CFF150E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{508D45B1-CD27-479E-8059-9F2C97C56D6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508D45B1-CD27-479E-8059-9F2C97C56D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508D45B1-CD27-479E-8059-9F2C97C56D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508D45B1-CD27-479E-8059-9F2C97C56D6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E67461C4-93BA-4D20-971D-46904CFF150E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E67461C4-93BA-4D20-971D-46904CFF150E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E67461C4-93BA-4D20-971D-46904CFF150E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E67461C4-93BA-4D20-971D-46904CFF150E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4124288-3C41-4559-82A6-96F97C9885B7}
+	EndGlobalSection
+EndGlobal
